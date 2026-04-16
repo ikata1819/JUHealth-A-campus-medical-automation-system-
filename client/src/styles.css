@@ -1,0 +1,267 @@
+:root {
+  --black-forest: #10451d;
+  --dark-emerald: #155d27;
+  --forest-green: #208b3a;
+  --medium-jungle: #25a244;
+  --jade-green: #2dc653;
+  --celadon: #92e6a7;
+  --celadon-2: #b7efc5;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* HEADER */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: linear-gradient(90deg, var(--black-forest), var(--forest-green));
+  color: var(--celadon-2);
+
+  padding: 20px 30px;
+  font-size: 30px;
+  font-weight: 900;
+  z-index: 1000;
+
+  animation: none;
+}
+
+/* smooth text glow only on title */
+.header > div:first-child {
+  animation: juGlow 3s ease-in-out infinite;
+}
+
+@keyframes juGlow {
+  0% {
+    text-shadow: 0 0 6px var(--celadon);
+    opacity: 0.95;
+  }
+  50% {
+    text-shadow: 0 0 18px var(--jade-green);
+    opacity: 1;
+  }
+  100% {
+    text-shadow: 0 0 6px var(--celadon);
+    opacity: 0.95;
+  }
+}
+/* LAYOUT */
+.layout {
+  display: flex;
+  margin-top: 90px;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 260px;
+  background: linear-gradient(180deg, var(--dark-emerald), var(--forest-green));
+  min-height: calc(100vh - 90px);
+  padding: 20px;
+}
+
+.sidebar button {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.sidebar button:hover {
+  background: var(--jade-green);
+  transform: translateX(5px);
+}
+
+/* CONTENT */
+.content {
+  flex: 1;
+  padding: 40px;
+  background: linear-gradient(135deg, var(--celadon-2), var(--celadon));
+}
+
+/* CENTER CARD */
+.center-card {
+  max-width: 750px;              /* was 600px */
+  margin: 100px auto;            /* more vertical space */
+  padding: 60px 50px;            /* bigger inside spacing */
+  border-radius: 18px;
+  background: white;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+
+  animation: pop 0.5s ease;
+}
+
+/* CARD */
+.card {
+  background: white;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* BUTTON */
+.btn {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--medium-jungle);
+  color: white;
+  padding: 16px 26px;     /* bigger */
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background: var(--jade-green);
+  transform: scale(1.08);
+  box-shadow: 0 10px 25px rgba(45,198,83,0.4);
+}
+
+/* INPUT */
+input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+/* FOOTER */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  background: var(--black-forest);
+  color: var(--celadon);
+
+  display: flex;
+  justify-content: first baseline;  /* 👈 moves content to right */
+  align-items: center;
+
+  height: 45px;
+  padding-right: 20px;        /* space from edge */
+
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+/* wrapper */
+.profile-wrapper {
+  position: relative;
+  margin-right: 50px;
+}
+
+/* avatar */
+.avatar {
+  cursor: pointer;
+  font-size: 26px;
+  padding: 10px 14px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  transition: 0.2s ease;
+}
+
+/* dropdown hidden by default */
+.dropdown {
+  position: absolute;
+  right: 0;
+  top: 55px;
+
+  background: white;
+  color: #1f2a1f;
+
+  border-radius: 10px;
+  width: 170px;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+
+  transition: 0.2s ease;
+}
+
+/* show on hover */
+.profile-wrapper:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* items */
+.profile-item {
+  padding: 10px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+
+.profile-item:hover {
+  background: #f3f6f3;
+}
+
+.profile-item.logout {
+  color: red;
+}
+
+.profile-item.logout:hover {
+  background: #ffecec;
+}
+
+.profile-wrapper {
+  position: relative;
+  margin-right: 50px;
+}
+
+.avatar {
+  cursor: pointer;
+  font-size: 26px;
+  padding: 10px 14px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+}
+
+.dropdown {
+  position: absolute;
+  right: 0;
+  top: 55px;
+  background: white;
+  border-radius: 10px;
+  width: 180px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: 0.2s ease;
+}
+
+.profile-wrapper:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
