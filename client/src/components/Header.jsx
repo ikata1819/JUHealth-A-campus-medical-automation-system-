@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
-
+import Profile from "../pages/Profile";
+import Settings from "../pages/Settings";
 function Header() {
   const navigate = useNavigate();
 
@@ -16,11 +17,7 @@ function Header() {
       {/* LEFT */}
       <div className="logo">
         JUHealth+
-        {user && (
-          <span className="welcome">
-            {" "} | Welcome, {user.name}
-          </span>
-        )}
+        {user && <span className="welcome"> | Welcome, {user.name}</span>}
       </div>
 
       {/* RIGHT PROFILE */}
@@ -28,10 +25,16 @@ function Header() {
         <div className="avatar">👤</div>
 
         <div className="dropdown">
-          <div className="profile-item">My Profile</div>
-          <div className="profile-item">Settings</div>
-          <div className="profile-item">Help & Support</div>
-
+  
+          <div className="profile-item" onClick={() => navigate("/profile")}>
+            My Profile
+          </div>
+          <div className="profile-item" onClick={() => navigate("/settings")}>
+            Settings
+          </div>
+          <div className="profile-item" onClick={() => navigate("/help")}>
+  Help & Support
+</div>
           <div className="profile-item logout" onClick={handleLogout}>
             Logout
           </div>
